@@ -349,7 +349,7 @@ def _render_patient_form() -> None:
         value=None,
         min_value=date(1900, 1, 1),
         max_value=date.today(),
-        format="DD/MM/YYYY",
+        format="MM/DD/YYYY",
         key="patient_dob",
         on_change=_sync_age_from_dob,
         help="Picking a date will fill in the age field for you.",
