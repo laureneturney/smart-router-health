@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import os
 import sys
+from datetime import date
 from pathlib import Path
 
 # allow `import backend.*` when streamlit launches us from anywhere
@@ -332,7 +333,13 @@ def _render_patient_form() -> None:
     c1, c2 = st.columns(2)
     age = c1.number_input("Age *", min_value=0, max_value=120,
                           value=int(st.session_state.patient_form.get("age", 30)))
-    dob = c2.date_input("Date of birth (optional)", value=None, format="DD/MM/YYYY")
+    dob = c2.date_input(
+        "Date of birth (optional)",
+        value=None,
+        min_value=date(1900, 1, 1),
+        max_value=date.today(),
+        format="DD/MM/YYYY",
+    )
 
     symptoms = st.text_area("Main symptoms *",
                             placeholder="e.g., chest pain, shortness of breath",
