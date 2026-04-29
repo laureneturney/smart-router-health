@@ -1,0 +1,19 @@
+{
+  "description": "Synthetic per-hospital traffic multipliers (1.0 = free flow, >1 = congestion).",
+  "as_of": "2026-04-29T08:30:00Z",
+  "default_speed_mph": 24,
+  "multipliers": {
+    "STMARY":   1.10,
+    "MRI":      1.25,
+    "NMGH":     0.95,
+    "WYTH":     1.05,
+    "SALFORD":  1.15,
+    "TRAFFORD": 0.90,
+    "STEPHENS": 1.00,
+    "TAMESIDE": 1.20
+  },
+  "incidents": [
+    {"location": "Mancunian Way eastbound", "delay_minutes": 6, "affected_hospitals": ["MRI", "STMARY"]},
+    {"location": "A56 near Salford Quays", "delay_minutes": 3, "affected_hospitals": ["SALFORD"]}
+  ]
+}

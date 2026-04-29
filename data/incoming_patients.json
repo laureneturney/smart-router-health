@@ -1,0 +1,64 @@
+[
+  {
+    "reference": "ER-MAN-2839",
+    "hospital_id": "STMARY",
+    "name": "P. Khan",
+    "age": 47,
+    "symptoms": "Chest tightness, mild shortness of breath",
+    "urgency": "high",
+    "eta_minutes": 4,
+    "via_app": true
+  },
+  {
+    "reference": "ER-MAN-2842",
+    "hospital_id": "STMARY",
+    "name": "M. O'Connor",
+    "age": 31,
+    "symptoms": "Suspected wrist fracture after fall",
+    "urgency": "medium",
+    "eta_minutes": 11,
+    "via_app": true
+  },
+  {
+    "reference": "ER-MAN-2845",
+    "hospital_id": "MRI",
+    "name": "S. Patel",
+    "age": 68,
+    "symptoms": "Stroke-like symptoms \u2014 facial droop",
+    "urgency": "critical",
+    "eta_minutes": 6,
+    "via_app": true
+  },
+  {
+    "reference": "ER-MAN-2846",
+    "hospital_id": "SALFORD",
+    "name": "J. Doyle",
+    "age": 22,
+    "symptoms": "Deep laceration to forearm",
+    "urgency": "medium",
+    "eta_minutes": 14,
+    "via_app": true
+  },
+  {
+    "reference": "ER-MAN-0966",
+    "hospital_id": "TRAFFORD",
+    "name": "John Doe",
+    "age": 30,
+    "symptoms": "chest pain",
+    "urgency": "critical",
+    "eta_minutes": 13,
+    "via_app": true,
+    "submitted_at": "2026-04-29T22:25:54.177284+00:00"
+  },
+  {
+    "reference": "ER-MAN-8343",
+    "hospital_id": "STMARY",
+    "name": "Sarah Jane",
+    "age": 30,
+    "symptoms": "I have really bad abdominal pain and think my appendix hurts",
+    "urgency": "high",
+    "eta_minutes": 10,
+    "via_app": true,
+    "submitted_at": "2026-04-29T22:29:10.113700+00:00"
+  }
+]

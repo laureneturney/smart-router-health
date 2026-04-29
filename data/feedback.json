@@ -1,0 +1,8 @@
+[
+  {"hospital_id": "STMARY",  "predicted_wait": 12, "actual_wait": 14, "rating": 5, "comment": "Spot on, staff were ready"},
+  {"hospital_id": "STMARY",  "predicted_wait": 15, "actual_wait": 13, "rating": 5, "comment": "Faster than expected"},
+  {"hospital_id": "MRI",     "predicted_wait": 35, "actual_wait": 52, "rating": 3, "comment": "Longer than the app said"},
+  {"hospital_id": "SALFORD", "predicted_wait": 11, "actual_wait": 12, "rating": 5, "comment": "Very accurate"},
+  {"hospital_id": "WYTH",    "predicted_wait": 18, "actual_wait": 16, "rating": 5, "comment": "Walked straight in"},
+  {"hospital_id": "TAMESIDE","predicted_wait": 40, "actual_wait": 78, "rating": 2, "comment": "Wait was much longer"}
+]
