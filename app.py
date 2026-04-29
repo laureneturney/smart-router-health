@@ -330,15 +330,29 @@ def _render_patient_form() -> None:
     name = st.text_input("Full name *", placeholder="Your name",
                          value=st.session_state.patient_form.get("name", ""))
 
+    def _sync_age_from_dob() -> None:
+        dob_val = st.session_state.get("patient_dob")
+        if dob_val:
+            today = date.today()
+            st.session_state["patient_age"] = (
+                today.year - dob_val.year
+                - ((today.month, today.day) < (dob_val.month, dob_val.day))
+            )
+
+    if "patient_age" not in st.session_state:
+        st.session_state["patient_age"] = int(st.session_state.patient_form.get("age", 30))
+
     c1, c2 = st.columns(2)
-    age = c1.number_input("Age *", min_value=0, max_value=120,
-                          value=int(st.session_state.patient_form.get("age", 30)))
+    age = c1.number_input("Age *", min_value=0, max_value=120, key="patient_age")
     dob = c2.date_input(
         "Date of birth (optional)",
         value=None,
         min_value=date(1900, 1, 1),
         max_value=date.today(),
         format="DD/MM/YYYY",
+        key="patient_dob",
+        on_change=_sync_age_from_dob,
+        help="Picking a date will fill in the age field for you.",
     )
 
     symptoms = st.text_area("Main symptoms *",
