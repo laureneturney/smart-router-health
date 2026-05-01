@@ -109,7 +109,6 @@ def _init_state() -> None:
         "user_lat": float(os.getenv("DEFAULT_LAT", "53.4808")),
         "user_lon": float(os.getenv("DEFAULT_LON", "-2.2426")),
         "font_size_pct": 100,
-        "language": "English",
         "voice_enabled": False,
         "assessment": None,
         "selected_hospital_id": None,
@@ -123,11 +122,8 @@ def _init_state() -> None:
 # --------------------------------------------------------------------------- #
 # Header (accessibility toolbar + 999 / 111)                                   #
 # --------------------------------------------------------------------------- #
-LANGUAGES = ["English", "Urdu", "Polish", "Arabic", "Spanish", "Cantonese", "Punjabi", "Romanian"]
-
-
 def _render_header() -> None:
-    cols = st.columns([1, 1, 1, 4, 1, 1])
+    cols = st.columns([1, 1, 4, 1, 1])
 
     with cols[0]:
         if st.button("A+", help="Increase text size", use_container_width=True):
@@ -138,12 +134,6 @@ def _render_header() -> None:
             st.session_state.font_size_pct = max(85, st.session_state.font_size_pct - 15)
             st.rerun()
     with cols[2]:
-        st.session_state.language = st.selectbox(
-            "Language", LANGUAGES,
-            index=LANGUAGES.index(st.session_state.language),
-            label_visibility="collapsed",
-        )
-    with cols[3]:
         if st.button("🎤 Voice", help="Enable read-aloud (turn up volume)", use_container_width=True):
             st.session_state.voice_enabled = not st.session_state.voice_enabled
             st.toast(
@@ -151,9 +141,9 @@ def _render_header() -> None:
                 if st.session_state.voice_enabled
                 else "Read-aloud disabled."
             )
-    with cols[4]:
+    with cols[3]:
         st.link_button("📞 999", "tel:999", use_container_width=True, type="primary")
-    with cols[5]:
+    with cols[4]:
         st.link_button("📞 111", "tel:111", use_container_width=True)
 
 
@@ -393,9 +383,6 @@ def _render_patient_form() -> None:
                                       placeholder="+44 7700 000000",
                                       value=st.session_state.patient_form.get("emergency_contact", ""))
 
-    language = st.selectbox("Language preference", LANGUAGES,
-                            index=LANGUAGES.index(st.session_state.language))
-
     st.markdown("**Accessibility needs**")
     cols = st.columns(2)
     access = []
@@ -450,7 +437,7 @@ def _render_patient_form() -> None:
             "medications": medications,
             "existing_conditions": conditions,
             "emergency_contact": emergency_contact,
-            "language": language,
+            "language": "English",
             "accessibility": access,
             "consent_share": consent,
         })
